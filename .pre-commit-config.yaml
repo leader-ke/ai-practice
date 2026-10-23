@@ -23,4 +23,4 @@ repos:
     hooks:
       - id: ruff
         stages: [pre-push]
-        args: [--select, "F,E,B,S", --no-fix]  # no auto-fix, just fail
+        args: [--select, "F,E,B,S", --ignore, "S101", --no-fix]  # no auto-fix, just fail

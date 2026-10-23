@@ -2,6 +2,37 @@ import anthropic
 
 client = anthropic.Anthropic()
 
+
+class AgentError(Exception):
+    """Base exception for all agent-related problems."""
+
+    pass
+
+
+class AgentConfigError(AgentError):
+    """Raised when the agent is misconfigured (e.g., bad API key)."""
+
+    pass
+
+
+class AgentUnavailableError(AgentError):
+    """Raised when the upstream service is overloaded, rate-limited, or unreachable."""
+
+    pass
+
+
+class AgentTimeoutError(AgentError):
+    """Raised when the upstream service fails to respond within the timeout window."""
+
+    pass
+
+
+class AgentExecutionError(AgentError):
+    """Raised when the internal agent execution loop aborts or hits thresholds."""
+
+    pass
+
+
 tickets = {"1234567890": "open", "1234567891": "closed", "1234567892": "on hold"}
 
 
@@ -38,7 +69,28 @@ def run_agent(question: str) -> str:
     for round_count in range(1, MAX_ROUNDS + 1):
         print(f"--- Round {round_count} ---")
 
-        msg = client.messages.create(model="claude-haiku-5-5", max_tokens=1000, tools=tools, messages=messages)
+        try:
+            msg = client.messages.create(model="claude-haiku-5-5", max_tokens=1000, tools=tools, messages=messages)
+        except anthropic.AuthenticationError as e:
+            raise AgentConfigError("Agent API configuration error.") from e
+
+        except anthropic.RateLimitError as e:
+            raise AgentUnavailableError("Upstream service is currently rate limited.") from e
+
+        except anthropic.APITimeoutError as e:
+            raise AgentTimeoutError("Upstream service timed out.") from e
+
+        except anthropic.APIConnectionError as e:
+            raise AgentUnavailableError("Failed to connect to upstream service.") from e
+
+        except anthropic.APIStatusError as e:
+            if e.status_code >= 500:
+                raise AgentUnavailableError("Upstream service reports internal failure.") from e
+            else:
+                raise AgentConfigError(f"Bad API request format (Status {e.status_code}).") from e
+
+        except Exception as e:
+            raise AgentExecutionError("Unexpected system anomaly during model invocation.") from e
 
         if msg.stop_reason == "tool_use":
             tool_use_blocks = [block for block in msg.content if block.type == "tool_use"]
