@@ -1,6 +1,6 @@
 import anthropic
 
-from config import LLM_MODEL
+from config import LLM_MODEL, MAX_TOKENS
 
 client = anthropic.Anthropic()
 
@@ -72,7 +72,7 @@ def run_agent(question: str) -> str:
         print(f"--- Round {round_count} ---")
 
         try:
-            msg = client.messages.create(model=LLM_MODEL, max_tokens=1000, tools=tools, messages=messages)
+            msg = client.messages.create(model=LLM_MODEL, max_tokens=MAX_TOKENS, tools=tools, messages=messages)
         except anthropic.AuthenticationError as e:
             raise AgentConfigError("Agent API configuration error.") from e
 

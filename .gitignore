@@ -11,3 +11,4 @@ __pycache__/
 dist/
 *.egg-info/
 clean_env/
+.DS_Store
