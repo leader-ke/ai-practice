@@ -15,6 +15,7 @@ Hands-on practice building with the Anthropic SDK — conversations, tool use, a
 ```bash
 python3 -m venv myenv
 source myenv/bin/activate
+pip install -r requirements.txt
 pip install anthropic ruff pre-commit
 pre-commit install
 pre-commit install --hook-type pre-push
@@ -24,7 +25,14 @@ Set your API key:
 
 ```bash
 export ANTHROPIC_API_KEY=your-key-here
+export LLM_MODEL="claude-haiku-5-5"
 ```
+
+### Run
+python agent.py
+
+### Test
+python -m pytest -q
 
 ## Linting
 
