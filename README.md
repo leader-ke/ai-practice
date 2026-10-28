@@ -8,15 +8,19 @@ Hands-on practice building with the Anthropic SDK — conversations, tool use, a
 |------|---------------|
 | `basics.py` | Multi-turn conversation, accessing thinking blocks |
 | `compute_usage.py` | Token counting and cost estimation per model |
-| `tools_lookup_ticket.py` | Tool definitions, tool use handling, agentic loop with max rounds |
+| `config.py` | Environment variable loading (model, API key, max tokens) |
+| `agent.py` | Agentic loop with tool use, custom error hierarchy |
+| `main.py` | FastAPI app exposing `/ask` and `/health` endpoints |
+| `test_main.py` | Tests for the FastAPI endpoints |
+| `transformers_chunking_retrieval.py` | Document chunking and semantic retrieval with sentence-transformers |
 
 ## Setup
 
 ```bash
-python3 -m venv myenv
-source myenv/bin/activate
+python3 -m venv clean_env
+source clean_env/bin/activate
 pip install -r requirements.txt
-pip install anthropic ruff pre-commit
+pip install ruff pre-commit
 pre-commit install
 pre-commit install --hook-type pre-push
 ```
@@ -29,10 +33,14 @@ export LLM_MODEL="claude-haiku-5-5"
 ```
 
 ### Run
-python agent.py
+```bash
+uvicorn main:app --reload
+```
 
 ### Test
+```bash
 python -m pytest -q
+```
 
 ## Linting
 
