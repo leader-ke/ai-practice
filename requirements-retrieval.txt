@@ -1,3 +1,7 @@
 # Retrieval experiments: embeddings (installs PyTorch, which is large)
 numpy==2.5.4
 sentence-transformers==6.2.0
+
+# Vector search in Postgres (Neon)
+psycopg[binary]==3.3.6
+pgvector==0.5.1
