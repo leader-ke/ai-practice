@@ -1,0 +1,55 @@
+{
+  "documents": [
+    {
+      "name": "Bug Severity Guide",
+      "paragraphs": [
+        {
+          "id": "severity_1",
+          "text": "Severity describes the impact of a defect on users, business operations, and system functionality. Severity is different from priority, which determines how urgently a defect should be addressed."
+        },
+        {
+          "id": "severity_2",
+          "text": "Critical severity means a core service is unavailable, important data is lost or corrupted, or a major security failure occurs. There is no reasonable workaround, and immediate investigation is required."
+        },
+        {
+          "id": "severity_3",
+          "text": "High severity means an important feature is broken, but the rest of the application may still work. Medium severity covers limited functionality issues with a workaround. Low severity covers minor cosmetic issues or small inconveniences."
+        }
+      ]
+    },
+    {
+      "name": "Bug Report Template",
+      "paragraphs": [
+        {
+          "id": "report_1",
+          "text": "A useful bug report includes a concise title, environment, application version, severity, and preconditions. The title should describe the observable problem rather than suggest an unverified root cause."
+        },
+        {
+          "id": "report_2",
+          "text": "Steps to reproduce should be numbered and repeatable. Expected results describe what should happen, while actual results describe what happened. Include screenshots, logs, or a recording when they help demonstrate the failure."
+        },
+        {
+          "id": "report_3",
+          "text": "Before submitting a report, check whether the issue already exists. Record the frequency, affected users or workflows, and any known workaround. Do not include passwords, access tokens, personal data, or other secrets in screenshots and logs."
+        }
+      ]
+    },
+    {
+      "name": "Test Environment Notes",
+      "paragraphs": [
+        {
+          "id": "environment_1",
+          "text": "A test environment should be identifiable by its environment name, application build, configuration, and deployment version. Record these details when reporting a defect so another tester can reproduce the same conditions."
+        },
+        {
+          "id": "environment_2",
+          "text": "Test data should be controlled and repeatable. Use synthetic accounts and data where possible. Reset data between tests when previous runs could affect results, and never copy production secrets into a test environment."
+        },
+        {
+          "id": "environment_3",
+          "text": "When a test fails, check service availability, network connectivity, configuration, test data, and application logs. Distinguish an application defect from an environment problem before assigning a final root cause."
+        }
+      ]
+    }
+  ]
+}

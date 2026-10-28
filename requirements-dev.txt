@@ -1,0 +1,5 @@
+# Everything the tests need, without the large embedding model
+-r requirements.txt
+numpy==2.5.4
+pytest==8.4.2
+httpx==0.28.1

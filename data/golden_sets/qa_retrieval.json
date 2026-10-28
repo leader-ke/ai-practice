@@ -1,0 +1,24 @@
+{
+  "questions": [
+    {
+      "question": "What is the difference between severity and priority?",
+      "expected_id": "severity_1"
+    },
+    {
+      "question": "When should a defect be classified as critical?",
+      "expected_id": "severity_2"
+    },
+    {
+      "question": "What should steps to reproduce and expected results contain?",
+      "expected_id": "report_2"
+    },
+    {
+      "question": "How should QA testers protect sensitive information in bug reports?",
+      "expected_id": "report_3"
+    },
+    {
+      "question": "What should a tester check when a test fails because of the environment?",
+      "expected_id": "environment_3"
+    }
+  ]
+}
