@@ -2,6 +2,15 @@
 
 Each entry says what I chose, why, and what I turned down. Newest first.
 
+## 30 Oct: query rewriting is provisional, and failures fall back to the original question
+Rewriting helped on every test I ran, but the questions were written by Claude and the corpus is tiny, and on the most realistic set the gain was small and within noise. I treat it as a likely gain, not a settled one, and will decide after testing real tester questions. The function never blocks a search: if the rewrite fails, `rewrite_or_original` uses the original question. Rewrites are saved per model in `data/rewrites/`, so experiments give the same numbers each time. I dropped my hand-written "manual" rewrites because they leaked the answer. See [experiment 003](../experiments/003-query-rewriting/README.md).
+
+## 30 Oct: one table with a label for each experiment
+`chunks` has a `config` column (for example `400-noprefix`), so chunk sizes and prefixes can sit in one table and each search filters on one label. The alternative was a table per experiment, which means copying the schema every time. The cost is that the label must be filtered on every query, and re-running an experiment needs its old rows cleared first.
+
+## 30 Oct: vector search lives in its own database on Neon
+I used Neon's free Postgres, which supports pgvector, and created a separate `ai_practice` database inside an existing project that had not been used since June, renaming the project to `ai-practice`. The old database in it was left untouched. A new project was not an option because the free plan already held ten. The connection string is only in `.env`, and I created the tables through the SQL editor and the Neon MCP, not from my code.
+
 ## 28 Oct: tests never touch a real key
 `tests/conftest.py` sets a dummy model and key before anything imports. A test that slips through to the real API fails with a `401` instead of spending money, and the suite runs the same on any machine, including CI.
 

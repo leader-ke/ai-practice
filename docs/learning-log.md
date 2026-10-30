@@ -1,6 +1,39 @@
 # Learning log
 
-A first draft. Lines marked TODO(ken) are for you to rewrite in your own words, and the mistakes are listed from memory, so correct anything that is wrong.
+A first draft. The mistakes are listed from memory, so correct anything that is wrong.
+
+## 30 Oct 2026: query rewriting
+I wrote a function that asks Claude to rewrite a question before searching, and tested whether it finds the right chunk more often ([experiment 003](../experiments/003-query-rewriting/README.md)). On 45 casual questions it raised Hit@1 from 0.56 to 0.70 on the small corpus, and from 0.42 to 0.63 once I added 15 unrelated paragraphs. It also made some questions worse (19 of 135 comparisons), costs one model call and about a second per search, and one rewrite in 231 was unusable.
+
+What stuck:
+- My first test was flawed: I wrote the "manual" rewrites knowing which paragraph they should find, so they proved nothing. A test question must not be written with the answer in view.
+- Five questions say almost nothing. The corpus was also so small that Hit@3 was nearly luck, so a harder corpus gave a fairer test.
+- A model's output varies, so save the rewrites and test several samples.
+- A rewrite can fail or be cut off, so the search needs a fallback to the original question.
+
+Mistakes: I did not check for a cut-off reply (`stop_reason`), or translate SDK errors, in my first version of the function.
+
+On 20 realistic questions, written after looking at how people really phrase these and never used to tune anything, the gain shrank (Hit@1 0.60 to 0.72 and 0.55 to 0.65) and was within noise, because 20 questions is too few to separate a real gain from chance. It hurt most on short, vague questions.
+
+TODO(ken): collect real tester questions and rerun [extended.py](../experiments/003-query-rewriting/extended.py). Does the gain hold?
+
+Open: is the gain worth one extra model call per search? How does it compare with keyword plus vector search?
+
+## 30 Oct 2026: vector search in Postgres
+I moved the chunk vectors from memory into Postgres on Neon, with pgvector, and searched them with SQL ([experiment 002](../experiments/002-pgvector-search/README.md), [note](notes/vector-search.md)). On the demo table I predicted the distances before running the query, and `<=>` gave 0, 0.0061 and 1, because it is a distance (smaller is closer), not a similarity.
+
+The result is the point: Postgres gave Hit@1 4/5 and Recall@3 4/5, exactly like the in-memory search from experiment 001, and returned the same top three chunks for the question that always fails. A database changes where vectors live and how fast they are found, not what is found.
+
+What stuck:
+- Turning on pgvector is per database. Running the demo in my old database gave `type "vector" does not exist`, because I had enabled it only in `ai_practice`. Check which database the editor is pointing at.
+- A vector column has a fixed size that must match the model (384 here).
+- Pass values as parameters, never build SQL by pasting strings, and keep the connection string in `.env` only.
+
+Mistakes: I ran the demo in the wrong database. Reading the code also showed that running the experiment twice would store every chunk twice and duplicate the search results, because storing never clears old rows. I have not checked that `1 - distance` equals the earlier cosine scores.
+
+TODO(ken): why is vector search "just a sort"?
+
+Open: when does an index become worth it, and what does it cost in accuracy? Should the experiment reuse the metric code in `evaluation.py` instead of repeating it?
 
 ## 28 Oct 2026: tidying and hardening the project
 Moved the code into `src/agent`, `src/api` and `src/retrieval`, with `tests/`, `data/` and `experiments/` beside it. The tests still passed and experiment 001 printed exactly the same results, which is how I knew the move was safe. Python needs to know where `src` is, so pytest has a `pythonpath` setting and uvicorn gets `--app-dir src`.

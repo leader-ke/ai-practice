@@ -52,6 +52,18 @@ Run the chunking experiment:
 PYTHONPATH=src python experiments/001-chunk-size-and-prefix/run.py
 ```
 
+Run the Postgres vector search experiment. It needs `DATABASE_URL` (a Neon connection string) in `.env`:
+
+```bash
+PYTHONPATH=src python experiments/002-pgvector-search/run.py
+```
+
+Run the query rewriting experiment (run 002 first so the chunks are stored; it calls the Anthropic API the first time and reuses saved rewrites after that):
+
+```bash
+PYTHONPATH=src python experiments/003-query-rewriting/run.py
+```
+
 ### Test
 ```bash
 python -m pytest -q

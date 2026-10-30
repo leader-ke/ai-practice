@@ -11,4 +11,8 @@ Start with the two logs, because they show how I think.
 
 **Retrieval:** [retrieval evaluation](notes/retrieval-evaluation.md) and [experiment 001](../experiments/001-chunk-size-and-prefix/README.md). Code in [src/retrieval](../src/retrieval/).
 
-Still to come, added when written: vector search in PostgreSQL, RAG with citations, and the QA triage agent.
+**Vector search in Postgres:** [vector search note](notes/vector-search.md) and [experiment 002](../experiments/002-pgvector-search/README.md).
+
+**Query rewriting:** [experiment 003](../experiments/003-query-rewriting/README.md). Code in [src/rewriting](../src/rewriting/).
+
+Still to come, added when written: RAG with citations, and the QA triage agent.
