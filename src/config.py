@@ -18,6 +18,3 @@ if not ANTHROPIC_API_KEY:
 
 if MAX_TOKENS <= 0:
     raise ValueError("MAX_TOKENS must be a positive integer.")
-
-if not DATABASE_URL:
-    raise ValueError("DATABASE_URL is missing from environment configuration.")

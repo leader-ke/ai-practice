@@ -3,6 +3,8 @@ from pgvector.psycopg import register_vector
 
 
 def connect(database_url):
+    if not database_url:
+        raise ValueError("DATABASE_URL is missing from environment configuration.")
     conn = psycopg.connect(database_url)
     register_vector(conn)
     return conn
