@@ -1,0 +1,90 @@
+{
+  "documents": [
+    {
+      "name": "Regression Testing Basics",
+      "paragraphs": [
+        {
+          "id": "regression_1",
+          "text": "A regression suite should cover the features customers rely on most. Run it after every merge to the main branch, and review the list each quarter so that retired features and obsolete checks do not slow the team down."
+        },
+        {
+          "id": "regression_2",
+          "text": "When a regression run fails, compare it with the last green run before digging in. Changes in the code since then are the first suspects, so bisect the commits rather than reading every failing check one by one."
+        },
+        {
+          "id": "regression_3",
+          "text": "Keep regression checks small and independent. A check that relies on the result of another one is hard to rerun, hides real failures behind earlier ones, and makes it difficult to run the suite in parallel."
+        }
+      ]
+    },
+    {
+      "name": "Test Automation Guidelines",
+      "paragraphs": [
+        {
+          "id": "automation_1",
+          "text": "Automate checks that are stable, repetitive, and valuable to run often. Leave rapidly changing screens and one-off checks to manual testing, because maintaining brittle scripts costs more than running them by hand."
+        },
+        {
+          "id": "automation_2",
+          "text": "Write each automated test so that it can fail for one reason only. Use clear names, avoid fixed waits in favour of explicit conditions, and keep helper code separate so a UI change needs one fix instead of fifty."
+        },
+        {
+          "id": "automation_3",
+          "text": "Treat flaky automated tests as a priority. A test that passes and fails at random trains the team to ignore red builds. Quarantine it quickly, find the cause, and only return it to the main suite once it is reliable."
+        }
+      ]
+    },
+    {
+      "name": "Exploratory Testing Handbook",
+      "paragraphs": [
+        {
+          "id": "exploratory_1",
+          "text": "Exploratory testing combines learning, test design, and execution at the same time. The tester follows hunches, varies inputs, and notices odd behaviour that a written script would never think to check."
+        },
+        {
+          "id": "exploratory_2",
+          "text": "Plan each exploratory session around a short charter, such as exploring checkout with an expired card. Timebox it to sixty or ninety minutes, take notes while you work, and stop to write up anything surprising."
+        },
+        {
+          "id": "exploratory_3",
+          "text": "After a session, hold a brief debrief with a teammate. Share what you covered, what you found, and what you could not reach. Turn the useful discoveries into new automated checks or follow-up charters for later."
+        }
+      ]
+    },
+    {
+      "name": "Release Checklist",
+      "paragraphs": [
+        {
+          "id": "release_1",
+          "text": "Before a release, confirm that every planned change is merged, the release notes are written, and the version number is updated. Make sure the team agrees on who can approve the final go decision on release day."
+        },
+        {
+          "id": "release_2",
+          "text": "On release day, run a short smoke check against the live build as soon as it is deployed. Confirm that sign in, the main journey, and payments behave normally, and keep the rollback steps close at hand just in case."
+        },
+        {
+          "id": "release_3",
+          "text": "After a release, watch dashboards and support channels for at least a day. Compare error rates with the previous version, thank the team, and hold a short review to note what went well and what to improve next time."
+        }
+      ]
+    },
+    {
+      "name": "Performance Testing Notes",
+      "paragraphs": [
+        {
+          "id": "performance_1",
+          "text": "Performance testing starts with clear goals, such as a page loading in under two seconds for five hundred people at once. Without a target number nobody can say whether the results are good enough to ship."
+        },
+        {
+          "id": "performance_2",
+          "text": "A load test gradually increases the number of simulated users to see how the system behaves under normal and peak traffic. Watch response times, error rates, and memory use together instead of looking at one measure alone."
+        },
+        {
+          "id": "performance_3",
+          "text": "A stress test pushes the system past its expected limits to find where it breaks and how it recovers. Record the breaking point, then check that the service comes back cleanly once the extra traffic is removed."
+        }
+      ]
+    }
+  ],
+  "note": "Unrelated QA paragraphs added to make retrieval harder. None should answer a question in the golden sets."
+}

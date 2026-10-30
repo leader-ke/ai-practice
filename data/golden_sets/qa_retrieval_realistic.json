@@ -1,0 +1,25 @@
+{
+  "note": "Written like real chat and ticket questions, after looking at how people phrase these (severity vs priority, bug report fields, credentials in tickets, test failures). Never used to tune the rewrite prompt, so it is a fair final check.",
+  "questions": [
+    {"question": "Dev says this is low priority but it crashes the app. Who's right?", "expected_id": "severity_1", "split": "realistic"},
+    {"question": "do severity and priority mean the same thing in jira", "expected_id": "severity_1", "split": "realistic"},
+    {"question": "payment page is down for everyone, what severity do I put?", "expected_id": "severity_2", "split": "realistic"},
+    {"question": "data got corrupted after the migration, how do I rate that?", "expected_id": "severity_2", "split": "realistic"},
+    {"question": "typo on the settings page, how do I classify it?", "expected_id": "severity_3", "split": "realistic"},
+    {"question": "what severity levels do we use?", "expected_id": "severity_3", "split": "realistic"},
+    {"question": "what should I name the ticket? is 'login broken because of cache bug' ok?", "expected_id": "report_1", "split": "realistic"},
+    {"question": "which fields are mandatory on a defect ticket?", "expected_id": "report_1", "split": "realistic"},
+    {"question": "how detailed do my repro steps need to be?", "expected_id": "report_2", "split": "realistic"},
+    {"question": "devs keep saying 'cannot reproduce', what am I missing in my write-up?", "expected_id": "report_2", "split": "realistic"},
+    {"question": "can I paste the API token from the failing request into the ticket?", "expected_id": "report_3", "split": "realistic"},
+    {"question": "I think someone already reported this, what do I do before filing?", "expected_id": "report_3", "split": "realistic"},
+    {"question": "dev can't repro on their machine, what info about my setup should I give them?", "expected_id": "environment_1", "split": "realistic"},
+    {"question": "how do we label whether a bug happened on staging or QA?", "expected_id": "environment_1", "split": "realistic"},
+    {"question": "can I just copy the prod database into test to get realistic data?", "expected_id": "environment_2", "split": "realistic"},
+    {"question": "tests pass on the first run and fail on the second, leftover data maybe?", "expected_id": "environment_2", "split": "realistic"},
+    {"question": "is it ok to test with my own personal account?", "expected_id": "environment_2", "split": "realistic"},
+    {"question": "automated test is red but the feature works when I click through, what now?", "expected_id": "environment_3", "split": "realistic"},
+    {"question": "how do I know if the failure was because the test server was down?", "expected_id": "environment_3", "split": "realistic"},
+    {"question": "who gets blamed for a failure, app team or infra, before we know the cause?", "expected_id": "environment_3", "split": "realistic"}
+  ]
+}

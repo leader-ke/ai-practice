@@ -1,0 +1,230 @@
+{
+  "questions": [
+    {
+      "question": "whats the difference between how bad a bug is and how fast we fix it",
+      "expected_id": "severity_1",
+      "split": "blind"
+    },
+    {
+      "question": "is a serious bug the same thing as an urgent one?",
+      "expected_id": "severity_1",
+      "split": "blind"
+    },
+    {
+      "question": "why would a really damaging bug not get fixed first",
+      "expected_id": "severity_1",
+      "split": "blind"
+    },
+    {
+      "question": "how much it hurts users vs when it gets done, are those two separate things",
+      "expected_id": "severity_1",
+      "split": "blind"
+    },
+    {
+      "question": "explain how bad vs how soon for bugs",
+      "expected_id": "severity_1",
+      "split": "blind"
+    },
+    {
+      "question": "app is totally down and nobody can use it, how serious is that",
+      "expected_id": "severity_2",
+      "split": "blind"
+    },
+    {
+      "question": "customer records got wiped, how do i label this",
+      "expected_id": "severity_2",
+      "split": "blind"
+    },
+    {
+      "question": "someone broke into the system, how fast do we need to look",
+      "expected_id": "severity_2",
+      "split": "blind"
+    },
+    {
+      "question": "what counts as the worst kind of bug",
+      "expected_id": "severity_2",
+      "split": "blind"
+    },
+    {
+      "question": "everything is dead and theres no way around it, who needs to jump on it",
+      "expected_id": "severity_2",
+      "split": "blind"
+    },
+    {
+      "question": "a button is the wrong colour, how minor is that",
+      "expected_id": "severity_3",
+      "split": "blind"
+    },
+    {
+      "question": "one big feature stopped working but the rest is fine, what grade is that",
+      "expected_id": "severity_3",
+      "split": "blind"
+    },
+    {
+      "question": "list the bug grades below the worst one",
+      "expected_id": "severity_3",
+      "split": "blind"
+    },
+    {
+      "question": "small part is broken but you can get around it, how do i grade it",
+      "expected_id": "severity_3",
+      "split": "blind"
+    },
+    {
+      "question": "misaligned logo, is that a big deal",
+      "expected_id": "severity_3",
+      "split": "blind"
+    },
+    {
+      "question": "what should i write as the headline of a ticket",
+      "expected_id": "report_1",
+      "split": "blind"
+    },
+    {
+      "question": "which basic fields go at the top when raising a bug",
+      "expected_id": "report_1",
+      "split": "blind"
+    },
+    {
+      "question": "can i guess the cause in the ticket name?",
+      "expected_id": "report_1",
+      "split": "blind"
+    },
+    {
+      "question": "do i need to say which app build i was on",
+      "expected_id": "report_1",
+      "split": "blind"
+    },
+    {
+      "question": "what has to be true before i start, and where do i put that",
+      "expected_id": "report_1",
+      "split": "blind"
+    },
+    {
+      "question": "how do i write the how-to-make-it-happen part",
+      "expected_id": "report_2",
+      "split": "blind"
+    },
+    {
+      "question": "what goes in expected vs actual",
+      "expected_id": "report_2",
+      "split": "blind"
+    },
+    {
+      "question": "should i attach a screen recording",
+      "expected_id": "report_2",
+      "split": "blind"
+    },
+    {
+      "question": "do the numbered steps need to be exact",
+      "expected_id": "report_2",
+      "split": "blind"
+    },
+    {
+      "question": "how do i show devs what went wrong with a picture or video",
+      "expected_id": "report_2",
+      "split": "blind"
+    },
+    {
+      "question": "how do i know if someone already logged this",
+      "expected_id": "report_3",
+      "split": "blind"
+    },
+    {
+      "question": "can i leave my password visible in the screenshot",
+      "expected_id": "report_3",
+      "split": "blind"
+    },
+    {
+      "question": "how often it happens, do i write that down",
+      "expected_id": "report_3",
+      "split": "blind"
+    },
+    {
+      "question": "what private stuff should i blur before sharing",
+      "expected_id": "report_3",
+      "split": "blind"
+    },
+    {
+      "question": "should i mention who is affected",
+      "expected_id": "report_3",
+      "split": "blind"
+    },
+    {
+      "question": "how can another tester set things up exactly like mine",
+      "expected_id": "environment_1",
+      "split": "blind"
+    },
+    {
+      "question": "what details about my setup should i note down",
+      "expected_id": "environment_1",
+      "split": "blind"
+    },
+    {
+      "question": "how do i say which stage or server i was testing on",
+      "expected_id": "environment_1",
+      "split": "blind"
+    },
+    {
+      "question": "what info identifies where i tested",
+      "expected_id": "environment_1",
+      "split": "blind"
+    },
+    {
+      "question": "colleague cant get the same result as me, what did i forget to tell them",
+      "expected_id": "environment_1",
+      "split": "blind"
+    },
+    {
+      "question": "can i use real customer accounts for testing",
+      "expected_id": "environment_2",
+      "split": "blind"
+    },
+    {
+      "question": "my last test messed up the next one, what do i do",
+      "expected_id": "environment_2",
+      "split": "blind"
+    },
+    {
+      "question": "are fake users okay?",
+      "expected_id": "environment_2",
+      "split": "blind"
+    },
+    {
+      "question": "is it ok to copy live passwords into the test system",
+      "expected_id": "environment_2",
+      "split": "blind"
+    },
+    {
+      "question": "how do i keep the sample info the same every time",
+      "expected_id": "environment_2",
+      "split": "blind"
+    },
+    {
+      "question": "test failed, what should i look at first",
+      "expected_id": "environment_3",
+      "split": "blind"
+    },
+    {
+      "question": "how do i know if its the app's fault or the setup",
+      "expected_id": "environment_3",
+      "split": "blind"
+    },
+    {
+      "question": "everything suddenly went red, where do i start checking",
+      "expected_id": "environment_3",
+      "split": "blind"
+    },
+    {
+      "question": "before blaming the code what do i rule out",
+      "expected_id": "environment_3",
+      "split": "blind"
+    },
+    {
+      "question": "tests fail because the server was down? how to tell",
+      "expected_id": "environment_3",
+      "split": "blind"
+    }
+  ],
+  "note": "45 casual newcomer questions written by a separate Claude agent that had seen the corpus, so somewhat easier than real ones."
+}

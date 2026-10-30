@@ -1,0 +1,40 @@
+{
+  "note": "Everyday, vague wording. 'tune' questions may be used while changing the rewrite prompt. 'heldout' questions are only for the final report and must not be used to tune anything.",
+  "questions": [
+    {"question": "Is a bug being really bad the same as it needing a fix fast?", "expected_id": "severity_1", "split": "tune"},
+    {"question": "Why do we rate defects in two different ways?", "expected_id": "severity_1", "split": "tune"},
+    {"question": "Who decides how urgent a bug is compared with how damaging it is?", "expected_id": "severity_1", "split": "heldout"},
+
+    {"question": "What counts as a showstopper bug?", "expected_id": "severity_2", "split": "tune"},
+    {"question": "Our app lost customer records, how bad is that?", "expected_id": "severity_2", "split": "tune"},
+    {"question": "Which bugs need someone on them right now with no way around?", "expected_id": "severity_2", "split": "heldout"},
+
+    {"question": "A button is the wrong colour, how serious is that?", "expected_id": "severity_3", "split": "tune"},
+    {"question": "How do I rate a bug where one feature is broken but everything else works?", "expected_id": "severity_3", "split": "tune"},
+    {"question": "What is the scale from low to high for defects?", "expected_id": "severity_3", "split": "heldout"},
+
+    {"question": "What should the heading of a bug ticket look like?", "expected_id": "report_1", "split": "tune"},
+    {"question": "Should I guess the cause when I name the ticket?", "expected_id": "report_1", "split": "tune"},
+    {"question": "What basics must every defect ticket have?", "expected_id": "report_1", "split": "heldout"},
+
+    {"question": "How do I write the steps so someone else can redo the bug?", "expected_id": "report_2", "split": "tune"},
+    {"question": "Should I attach a video of the problem?", "expected_id": "report_2", "split": "tune"},
+    {"question": "Where do I say what I wanted to happen and what really happened?", "expected_id": "report_2", "split": "heldout"},
+
+    {"question": "Is it okay to leave my login visible in a screenshot I attach?", "expected_id": "report_3", "split": "tune"},
+    {"question": "How do I avoid filing the same bug twice?", "expected_id": "report_3", "split": "tune"},
+    {"question": "What do I say about how often it happens?", "expected_id": "report_3", "split": "heldout"},
+
+    {"question": "How can a colleague recreate my test setup?", "expected_id": "environment_1", "split": "tune"},
+    {"question": "What identifies a test environment?", "expected_id": "environment_1", "split": "tune"},
+    {"question": "What setup details do I note down when something breaks?", "expected_id": "environment_1", "split": "heldout"},
+
+    {"question": "Can I use real customer accounts for testing?", "expected_id": "environment_2", "split": "tune"},
+    {"question": "Do I need to wipe data between test runs?", "expected_id": "environment_2", "split": "tune"},
+    {"question": "What kind of fake data should we use?", "expected_id": "environment_2", "split": "heldout"},
+
+    {"question": "My test failed, is it the app or the server?", "expected_id": "environment_3", "split": "tune"},
+    {"question": "What do I look at first when a test goes red?", "expected_id": "environment_3", "split": "tune"},
+    {"question": "How do I tell a real bug from a flaky setup?", "expected_id": "environment_3", "split": "heldout"}
+  ]
+}
